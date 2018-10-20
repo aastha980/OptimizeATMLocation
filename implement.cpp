@@ -3,7 +3,7 @@ using namespace std;
 
 #define mutationRate 10
 #define crossoverRate 50
-#define maxLocation 450
+#define maxLocation 470
 #define maxCost 100000000
 struct node{
     string location;
@@ -119,7 +119,7 @@ int main(){
 
         }
         if(costt<=maxCost&&m<=maxLocation){
-        cout<<costt<<" "<<m<<endl;
+            //cout<<costt<<" "<<m<<endl;
             group.push_back({v,0.0});
         }
     }
@@ -251,10 +251,12 @@ int main(){
             rouletteChromosomes[jj].first[hh]=1-rouletteChromosomes[jj].first[hh];
             rouletteChromosomes[jj].second=fitness(data,rouletteChromosomes[jj].first);
         }
+        sort(rouletteChromosomes.begin(),rouletteChromosomes.end(),myfun);
+        cout<<"The fitness of best chromosome in generation "<<200-generations<<" is "<<rouletteChromosomes[rouletteChromosomes.size()-1].second<<endl;
     }
-    for(int i=0;i<rouletteChromosomes[rouletteChromosomes.size()-1].first.size();i++){
-        cout<<rouletteChromosomes[rouletteChromosomes.size()-1].first[i]<<" ";
-    }
-    cout<<endl;
-    cout<<rouletteChromosomes[rouletteChromosomes.size()-1].second<<endl;
+//    for(int i=0;i<rouletteChromosomes[rouletteChromosomes.size()-1].first.size();i++){
+//        cout<<rouletteChromosomes[rouletteChromosomes.size()-1].first[i]<<" ";
+//    }
+//    cout<<endl;
+//    cout<<rouletteChromosomes[rouletteChromosomes.size()-1].second<<endl;
 }
